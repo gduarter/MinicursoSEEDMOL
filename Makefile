@@ -40,6 +40,8 @@ install:
 	conda install --force-reinstall -y --name alqpy310 -c openbiosim biosimspace
 	conda install --force-reinstall -y --name alqpy310 -c openbiosim sire
 	conda install --force-reinstall -y --name alqpy310 -c rdkit rdkit 
+	conda install --force-reinstall -y --name alqpy310 -c omnia openmm
+	mkdir ~/local
 	@echo "[2/4] instalando packmol: ${PACKMOL_VERSION}..."
 	# bash scripts/install-packmol.sh ${PACKMOL_VERSION}
 	@echo "[3/4] instalando ParmEd: ${PARMED_VERSION}..."
