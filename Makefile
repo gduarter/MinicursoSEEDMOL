@@ -8,20 +8,22 @@ conf-conda:
 	@echo "---------------------"
 	@echo "Modificando bashrc..."
 	@echo "---------------------"
-	@echo '# >>> conda initialize >>>' >> ~/.bashrc
-	@echo '# !! Contents within this block are managed by "conda init" !!' >> ~/.bashrc
-	@echo '__conda_setup="$$(~/miniconda3/bin/conda shell.bash hook 2> /dev/null)"' >> ~/.bashrc
-	@echo 'if [ $$? -eq 0 ]; then' >> ~/.bashrc
-	@echo '    eval "$$__conda_setup"' >> ~/.bashrc
-	@echo 'else' >> ~/.bashrc
-	@echo '    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then' >> ~/.bashrc
-	@echo '        . "~/miniconda3/etc/profile.d/conda.sh"' >> ~/.bashrc
-	@echo '    else' >> ~/.bashrc
-	@echo '        export PATH="~/miniconda3/bin:$$PATH"' >> ~/.bashrc
-	@echo '    fi' >> ~/.bashrc
-	@echo 'fi' >> ~/.bashrc
-	@echo 'unset __conda_setup' >> ~/.bashrc
-	@echo '# <<< conda initialize <<<' >> ~/.bashrc
+	@if ! grep -q '# >>> conda initialize >>>' ~/.bashrc; then \
+        echo '# >>> conda initialize >>>' >> ~/.bashrc; \
+        echo '# !! Contents within this block are managed by "conda init" !!' >> ~/.bashrc; \
+        echo '__conda_setup="$$(~/miniconda3/bin/conda shell.bash hook 2> /dev/null)"' >> ~/.bashrc; \
+        echo 'if [ $$? -eq 0 ]; then' >> ~/.bashrc; \
+        echo '    eval "$$__conda_setup"' >> ~/.bashrc; \
+        echo 'else' >> ~/.bashrc; \
+        echo '    if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then' >> ~/.bashrc; \
+        echo '        . "~/miniconda3/etc/profile.d/conda.sh"' >> ~/.bashrc; \
+        echo '    else' >> ~/.bashrc; \
+        echo '        export PATH="~/miniconda3/bin:$$PATH"' >> ~/.bashrc; \
+        echo '    fi' >> ~/.bashrc; \
+        echo 'fi' >> ~/.bashrc; \
+        echo 'unset __conda_setup' >> ~/.bashrc; \
+        echo '# <<< conda initialize <<<' >> ~/.bashrc; \
+    fi
 	@echo ""
 	@echo ""
 	@echo "Execute o seguite comando em seu terminal:"
@@ -41,7 +43,9 @@ install:
 	conda install --force-reinstall -y --name alqpy310 -c openbiosim sire
 	conda install --force-reinstall -y --name alqpy310 -c rdkit rdkit 
 	conda install --force-reinstall -y --name alqpy310 -c omnia openmm
-	mkdir ~/local
+	if [ ! -d ~/local ]; then \
+        mkdir ~/local; \
+    fi
 	@echo "[2/4] instalando packmol: ${PACKMOL_VERSION}..."
 	# bash scripts/install-packmol.sh ${PACKMOL_VERSION}
 	@echo "[3/4] instalando ParmEd: ${PARMED_VERSION}..."
