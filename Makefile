@@ -34,7 +34,7 @@ conf-conda:
 	@echo "make install"
 	@echo ""
 
-install:
+conda_parameters:
 	@echo "Configurando ambiente de desenvolvimento..."
 	@echo "[1/3] instalando dependências do Python..."
 	conda create -y --name alqpy310 python=3.10
@@ -52,8 +52,9 @@ install:
 	bash scripts/install-ParmEd.sh
 
 clean:
-	#rm -r ~/local/packmol-${PACKMOL_VERSION}
+	rm -r ~/local/packmol-${PACKMOL_VERSION}
 	@echo ${PACKMOL_VERSION}
+	rm -r ~/local/dock06.tar
 
 about:
 	@echo "> setup-xxx-unb"
