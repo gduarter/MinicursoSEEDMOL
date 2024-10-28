@@ -36,7 +36,7 @@ conf-conda:
 
 conda_parameters:
 	@echo "Configurando ambiente de desenvolvimento..."
-	@echo "[1/3] instalando dependências do Python..."
+	@echo "[1/4] instalando dependências do Python..."
 	conda create -y --name alqpy310 python=3.10
 	conda install --force-reinstall -y --name alqpy310 -c conda-forge ambertools
 	conda install --force-reinstall -y --name alqpy310 -c openbiosim biosimspace
@@ -46,10 +46,12 @@ conda_parameters:
 	if [ ! -d ~/local ]; then \
         mkdir ~/local; \
     fi
-	@echo "[2/3] instalando packmol: ${PACKMOL_VERSION}..."
+	@echo "[2/4] instalando packmol: ${PACKMOL_VERSION}..."
 	bash scripts/install-packmol.sh ${PACKMOL_VERSION}
-	@echo "[3/3] instalando ParmEd: ${PARMED_VERSION}..."
+	@echo "[3/4] instalando ParmEd:"
 	bash scripts/install-ParmEd.sh
+	@echo "[4/4] instalando Dock06"
+	bash scripts/install-Dock06.sh
 
 clean:
 	rm -r ~/local/packmol-${PACKMOL_VERSION}
@@ -57,15 +59,14 @@ clean:
 	rm -r ~/local/dock06.tar
 
 about:
-	@echo "> setup-xxx-unb"
+	@echo "> setup-dock_configure-unb"
 	@echo ""
-	@echo "make install      - Configura o ambiente de desenvolvimento."
-	@echo "                    PACKMOL_VERSION=versao-especifica."
+	@echo "make conf-conda         - Instala o ambiente de desenvolvimento."
+	@echo "make conda_parameters   - Configura o ambiente de desenvolvimento."
+	@echo "                    PACKMOL_VERSION=${PACKMOL_VERSION}."
 	@echo "make clean        - Limpa o ambiente."
 	@echo ""
-	@echo "mailto: isaac...@gmail.com"
+	@echo "mail to: 170121186@aluno.unb.br"
 
-all: install
-
-.PHONY: conf-conda clean install all
+.PHONY: conf-conda clean conda_parameters
 
