@@ -41,19 +41,19 @@ conf-conda:
 	@echo ""
 
 conda_parameters:
-	#@echo "Configurando ambiente de desenvolvimento..."
-	#@echo "[1/5] instalando dependências do Python..."
-	#conda create -y --name alqpy310 python=3.10
-	#conda install --force-reinstall -y --name alqpy310 -c conda-forge ambertools
-	#conda install --force-reinstall -y --name alqpy310 -c openbiosim biosimspace
-	#conda install --force-reinstall -y --name alqpy310 -c openbiosim sire
-	#conda install --force-reinstall -y --name alqpy310 -c rdkit rdkit
-	#conda install --force-reinstall -y --name alqpy310 -c omnia openmm
-	#if [ ! -d ~/local ]; then \
-        #mkdir ~/local; \
-    #fi
-	#@echo "[2/5] instalando packmol: ${PACKMOL_VERSION}..."
-	#bash scripts/install-packmol.sh ${PACKMOL_VERSION}
+	@echo "Configurando ambiente de desenvolvimento..."
+	@echo "[1/5] instalando dependências do Python..."
+	conda create -y --name alqpy310 python=3.10
+	conda install --force-reinstall -y --name alqpy310 -c conda-forge ambertools
+	conda install --force-reinstall -y --name alqpy310 -c openbiosim biosimspace
+	conda install --force-reinstall -y --name alqpy310 -c openbiosim sire
+	conda install --force-reinstall -y --name alqpy310 -c rdkit rdkit
+	conda install --force-reinstall -y --name alqpy310 -c omnia openmm
+	if [ ! -d ~/local ]; then \
+        mkdir ~/local; \
+    fi
+	@echo "[2/5] instalando packmol: ${PACKMOL_VERSION}..."
+	bash scripts/install-packmol.sh ${PACKMOL_VERSION}
 	@echo "[3/5] instalando Dock6"
 	bash scripts/install-Dock06.sh
 	@echo ""
