@@ -9,4 +9,5 @@ cd ~/local
 git clone https://github.com/ParmEd/ParmEd
 
 cd ParmEd
+conda activate alqpy310
 python setup.py install
