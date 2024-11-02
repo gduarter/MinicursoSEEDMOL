@@ -42,7 +42,7 @@ conf-conda:
 
 conda_parameters:
 	@echo "Configurando ambiente de desenvolvimento..."
-	@echo "[1/5] instalando dependências do Python..."
+	@echo "[1/4] instalando dependências do Python..."
 	conda create -y --name alqpy310 python=3.10
 	conda install --force-reinstall -y --name alqpy310 -c conda-forge ambertools
 	conda install --force-reinstall -y --name alqpy310 -c openbiosim biosimspace
@@ -52,9 +52,9 @@ conda_parameters:
 	if [ ! -d ~/local ]; then \
         mkdir ~/local; \
     fi
-	@echo "[2/5] instalando packmol: ${PACKMOL_VERSION}..."
-	bash scripts/install-packmol.sh ${PACKMOL_VERSION}
-	@echo "[3/5] instalando Dock6"
+	#@echo "[2/5] instalando packmol: ${PACKMOL_VERSION}..."
+	#bash scripts/install-packmol.sh ${PACKMOL_VERSION}
+	@echo "[2/4] instalando Dock6"
 	bash scripts/install-Dock06.sh
 	@echo ""
 	@echo ""
@@ -68,7 +68,7 @@ conda_parameters:
 
 
 conda_correct:
-	@echo "[4/5] correção dock6"
+	@echo "[3/4] correção dock6"
 	bash scripts/correction_Dock6.sh
 	@echo ""
 	@echo ""
@@ -81,20 +81,20 @@ conda_correct:
 	rm -rf ~/local/dock6.10/src
 
 conda_parmed:
-	@echo "[5/5] instalando ParmEd:"
+	@echo "[4/4] instalando ParmEd:"
 	bash scripts/install-ParmEd.sh
 
 clean:
-	rm -r ~/local/packmol-${PACKMOL_VERSION}
-	@echo ${PACKMOL_VERSION}
-	rm -r ~/local/dock06.tar
+	#rm -r ~/local/packmol-${PACKMOL_VERSION}
+	#@echo ${PACKMOL_VERSION}
+	rm -r ~/local/dock6.10
 
 about:
 	@echo "> setup-dock_configure-unb"
 	@echo ""
 	@echo "make conf-conda         - Instala o ambiente de desenvolvimento."
 	@echo "make conda_parameters   - Configura o ambiente de desenvolvimento."
-	@echo "                    PACKMOL_VERSION=${PACKMOL_VERSION}."
+	#@echo "                    PACKMOL_VERSION=${PACKMOL_VERSION}."
 	@echo "make clean        - Limpa o ambiente."
 	@echo ""
 	@echo "mail to: 170121186@aluno.unb.br"
