@@ -33,7 +33,7 @@ conf-conda:
 	@echo ""
 	@echo "Em seguida:"
 	@echo ""
-	@echo "cd /dock06"
+	@echo "cd /MinicursoSEEDMOL"
 	@echo ""
 	@echo "Por fim execute o comando:"
 	@echo ""
