@@ -5,7 +5,7 @@ descrição...
 ## Pre-requisitos
 
 - Conda
-- Python >= 3.xxx
+- Python >= 3.9
 - Make
 
 ## Setup Inicial
@@ -18,5 +18,5 @@ sudo apt install -y make
 ## Uso
 
 ``` bash
-make install
+make conda_configure
 ```
