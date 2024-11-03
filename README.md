@@ -1,7 +1,5 @@
 # Setup de Configuração do Minicurso UnB
 
-descrição...
-
 ## Pre-requisitos
 
 - Conda
@@ -17,6 +15,18 @@ sudo apt install -y make
 
 ## Uso
 
+Siga as instruções que surgirem na tela entre os comandos.
+
 ``` bash
-make conda_configure
+make conf_conda
+make conda_parameters
+make conda_parmed
+```
+
+Ou, no caso de problemas na instalação de algum pacote:
+``` bash
+make conf_conda
+make conda_parameters
+make conda_correct
+make conda_parmed
 ```
