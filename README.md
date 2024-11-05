@@ -1,11 +1,9 @@
 # Setup de Configuração do Minicurso UnB
 
-descrição...
-
 ## Pre-requisitos
 
 - Conda
-- Python >= 3.xxx
+- Python >= 3.9
 - Make
 
 ## Setup Inicial
@@ -17,6 +15,18 @@ sudo apt install -y make
 
 ## Uso
 
+Siga as instruções que surgirem na tela entre os comandos.
+
 ``` bash
-make install
+make conf_conda
+make conda_parameters
+make conda_parmed
+```
+
+Ou, no caso de problemas na instalação de algum pacote:
+``` bash
+make conf_conda
+make conda_parameters
+make conda_correct
+make conda_parmed
 ```
