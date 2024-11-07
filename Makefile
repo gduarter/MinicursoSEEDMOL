@@ -54,8 +54,8 @@ conda_parameters:
     fi
 	#@echo "[2/5] instalando packmol: ${PACKMOL_VERSION}..."
 	#bash scripts/install-packmol.sh ${PACKMOL_VERSION}
-	@echo "[2/4] instalando Dock6"
-	bash scripts/install-Dock06.sh
+	#@echo "[2/4] instalando Dock6"
+	#bash scripts/install-Dock06.sh
 	@echo ""
 	@echo ""
 	@echo "Para finalizar abra e feche o terminal"
@@ -64,21 +64,21 @@ conda_parameters:
         @echo "Execute:"
 	@echo ""
 	@echo "make conda_parmed"
-	rm -rf ~/local/dock6.10/src
+	#rm -rf ~/local/dock6.10/src
 
 
 conda_correct:
-	@echo "[3/4] correção dock6"
-	bash scripts/correction_Dock6.sh
-	@echo ""
-	@echo ""
-	@echo "Para finalizar abra e feche o terminal"
-	@echo ""
-	@echo "Execute:"
-	@echo ""
-	@echo ""
-	@echo "make conda_parmed"
-	rm -rf ~/local/dock6.10/src
+	#@echo "[3/4] correção dock6"
+	#bash scripts/correction_Dock6.sh
+	#@echo ""
+	#@echo ""
+	#@echo "Para finalizar abra e feche o terminal"
+	#@echo ""
+	#@echo "Execute:"
+	#@echo ""
+	#@echo ""
+	#@echo "make conda_parmed"
+	#rm -rf ~/local/dock6.10/src
 
 conda_parmed:
 	@echo "[4/4] instalando ParmEd:"
